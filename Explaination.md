@@ -251,7 +251,7 @@ For example, `GreetingService` doesn't need to be recreated every time somebody 
 	From the package containing the main application class and its subpackages
 
  
-
+`git checkout -b lesson`
 ## Lesson 3 Spring Boot Configuration and project Structure
 
 ### 1. Understand Project's structure
