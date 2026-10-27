@@ -182,3 +182,73 @@ makes testing.
 	Hello! Spring dependency  injection works
 
 
+- `@springBootConfiguration` is a convenient annotation that combines three important Spring annotation
+	- `@SpringBootConfiguration` Identifies the class as a source  of Spring configuration.
+	- `@EnableAutoConfiguration` lets Spring Boot configure parts of the application based on the available dependencies and settings.
+	- `@Component` tells Spring to discover eligible components in the relevant packages.
+
+You don't need to write all the three annotations separately for a normal application.
+
+By default, component scanning starts from the package containing the main application class and includes its subpackages.
+
+### Then how does Spring know which object to inject?
+
+back on this constructor
+
+```java
+public GreetingController(GreetingService greetingService){
+	this.greetingService = greetingService;
+}
+```
+
+Spring sees that `GreetingController` requires a `GreetingService`. Since `GreetingService` is registered as a bean, Spring can supply it
+
+
+### process
+
+1. **Spring discovers** `@Service` this Finds GreetingService then
+2. **Spring registers a bean** this Manages the service object
+3. **Spring injects the dependency** Passes the service into the controller constructor.
+
+This is called **automatic dependency injection**
+
+So, some developers use the `@Authowired` on constructor that inject a dependecy
+
+- eg:
+
+```java
+@Autowired
+public GreetingController(GreetingService greetingService){
+	this.greetingService = greetingService;
+}
+``` 
+**Notice:** In a class with a single constructor, Spring can perfom constructor injection without the annotation @Autowired. That is why our original example works
+
+### How long does a bean live?
+
+By default, Spring-managed beans have **Singleton scope.**
+
+In this context, `singleton` means Spring normally creates one managed instance of that bean per application context and reuses it when needed.
+
+For example, `GreetingService` doesn't need to be recreated every time somebody visits `/hello`.
+
+- One important practical rule: because a singleton service may be shared between requests, avoid storing request-specific, changing data in ordinary mutable fields inside a service.  
+
+
+### Revisiom
+
+1. What helps Spring discover GreetingService?
+
+	The `@Service` annotation and component scanning
+2. Why does our controller work without `@Autowired`
+
+	Spring can inject the dependency throught its single constructor
+3. What does singleton scope mean here?
+
+	Spring normally manages one instance of the bean per application context
+4. Where does default component scanning begin?
+	
+	From the package containing the main application class and its subpackages
+
+ 
+	
