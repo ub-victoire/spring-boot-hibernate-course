@@ -251,4 +251,14 @@ For example, `GreetingService` doesn't need to be recreated every time somebody 
 	From the package containing the main application class and its subpackages
 
  
-	
+
+## Lesson 3 Spring Boot Configuration and project Structure
+
+### 1. Understand Project's structure
+
+- `src/main/java` This is our Java source code: the main application class, controllers, services, and eventually repositories and entities.
+- `src/main/resource` Configuration files and other resources that  your application needs.
+- `application.properties` A place to configure settings such as the server port and application name.
+- `src/test/java/` Automated tests that help verify your application behaves as expected.
+
+
