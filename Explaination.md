@@ -289,6 +289,7 @@ public class GreetingService {
 ```
 Here's what the new part means:
 
+**This tells Spring: "Find the configuration property named app.greeting and put its value into the greeting variable."**
 - `@Value("${app.greeting}")` tells Spring to read the setting named `app.greeting`
 - Spring injects that value into the `greeting` field
 - `getGreeting()` returns the configured message
