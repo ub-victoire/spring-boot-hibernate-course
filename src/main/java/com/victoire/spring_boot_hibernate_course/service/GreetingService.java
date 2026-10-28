@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GreetingService {
 
+	//  injects the value of the `app.greeting` property into a field.
 	@Value ("${app.greeting}")
 	private String greeting;
 	public String getGreeting(){
