@@ -293,3 +293,11 @@ Here's what the new part means:
 - `@Value("${app.greeting}")` tells Spring to read the setting named `app.greeting`
 - Spring injects that value into the `greeting` field
 - `getGreeting()` returns the configured message
+
+### Important distinction
+
+- Java classes define application behavior.
+- Configuration files hold adjhustablle application settings.
+- `target` contains generated output and should not be edited manually
+
+
