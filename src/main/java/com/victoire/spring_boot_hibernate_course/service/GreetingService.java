@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 public class GreetingService {
 
 	@Value ("${app.greeting}")
+	private String greeting;
 	public String getGreeting(){
-		return "Hello! Spring dependency injection works.";
+		return greeting;
 	}
 }

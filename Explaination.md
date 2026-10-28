@@ -261,4 +261,34 @@ For example, `GreetingService` doesn't need to be recreated every time somebody 
 - `application.properties` A place to configure settings such as the server port and application name.
 - `src/test/java/` Automated tests that help verify your application behaves as expected.
 
+setting something in the application.properties 
 
+```properties
+app.greeting= Hello from application.propertise!
+```
+
+Next , update the GreetingService.java:
+
+```java
+package com.victoire.spring_boot_hibernate_course.service;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+// marks the class as a service component.
+@Service
+public class GreetingService {
+
+	@Value ("${app.greeting}")
+	private String greeting;
+	public String getGreeting(){
+		return greeting;
+	}
+}
+
+```
+Here's what the new part means:
+
+- `@Value("${app.greeting}")` tells Spring to read the setting named `app.greeting`
+- Spring injects that value into the `greeting` field
+- `getGreeting()` returns the configured message
