@@ -301,3 +301,21 @@ Here's what the new part means:
 - `target` contains generated output and should not be edited manually
 
 
+### Revision 
+
+1. Where does application.properties normally live?
+
+	`src/main/resource`
+2. What does server.port=8081 do?
+
+	Configures the embedded web server to use port 8081
+3. What does @value("${app.greeting}")do?
+	
+	Injects the configured app.greeting value
+4. Why put the greeting in configuration
+
+	So the message can be changed without editing the service logic
+5. What is the target directory for?
+
+	Generated build output such as compiled classes
+
