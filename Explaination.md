@@ -367,6 +367,14 @@ A request normally travels down the layers, and the response travels back up:
 	    ⬇️
 	Service
 	    ⬇️
-	Repository	
+	Repository
+	    ⬇️
+	Database
+	    ⬇️
+	Repository -> Service -> Controller
+	    ⬇️
+	HTTP Response
+
+	
 
  
