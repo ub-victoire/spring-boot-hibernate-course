@@ -19,12 +19,10 @@ public class Task {
     public Task(){
 
     }
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Task(String title, boolean completed) {
+        this.title = title;
+        this.completed = completed;
     }
 
     public String getTitle() {
