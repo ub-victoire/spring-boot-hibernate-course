@@ -322,4 +322,3 @@ Here's what the new part means:
 git checkout -b lesson4
 ## Lesson 4  layered architecture
 
-
