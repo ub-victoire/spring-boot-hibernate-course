@@ -383,6 +383,19 @@ Imagine a controller that receives requests, validates business rules, writes SQ
 
 It might work initially, but it becomes difficult to test and maintain. With layers, each class has a clearer responsibility, and you can change database access without rewriting your HTTP endpoints.
 
+`Post`	`/api/tasks`	Create a task
+`GET`	`/api/tasks`	Retrieve all tasks
+`GET`	`/api/tasks{id}`Retrieve one task
+
+*Spring Data JPA and an in-memory H2 database* allow persistence  without installing and configuring MySQL or ProsgreSQL
+
+One Important distinction from the previous lessons:
+
+- Spring Boot manages application components
+- Spring Data JPA provides repository functionality
+- JPA defines the persistence mapping API
+- Hibernate is the ORM(Object-Relational Mapping) provider that perfoms the Object-to-relationsl mapping in this setup.
+- H2 is the database that stores our records while the application runs 
 	
 
  
