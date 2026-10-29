@@ -322,3 +322,51 @@ Here's what the new part means:
 git checkout -b lesson4
 ## Lesson 4  layered architecture
 
+- 1. **Controller**: Receives HTTP requests and returns HTTP responses
+- 2. **Service**: Implements application rules and coordinates the work
+- 3. **Repository**: Handles saving, retrieving, updating, and deleting data
+- 4. **Entity**: Represents the data we want to persist, such as a task
+
+This is a common layered architecture. The diagram is a conceptual guide: an entity is a data model used by the persistence layer, not a service that performs work.
+
+**Controller-> Service-> Repository-> Persistence mechanism**
+
+The entity represents the data being handled. JPA and Hibernate help map entity objects to database records.
+
+### 1 Understand the four layer
+
+- 1. **Controller**: the entry point
+
+Receives HTTP requests and returns a responses
+
+eg: `POST /api/tasks/` receives a request to create a task.
+
+- 2. **Service**: the business rules
+
+Decides what the application should do
+
+eg: Reject a task if its title is blank.
+
+- 3. **Repository**: data access
+
+Provides operations for saving and retrieving data.
+
+eg: save a task or find all tasks in the database
+
+- 4. **Entity**: the data model
+
+Represents the information we want to store.
+
+eg: a task has an ID, a title, and a completion status
+
+A request normally travels down the layers, and the response travels back up:
+
+	HTTP request
+	    ⬇️
+	Controller
+	    ⬇️
+	Service
+	    ⬇️
+	Repository	
+
+ 
