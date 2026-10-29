@@ -362,17 +362,29 @@ eg: a task has an ID, a title, and a completion status
 A request normally travels down the layers, and the response travels back up:
 
 	HTTP request
+
 	    ⬇️
+
 	Controller
+
 	    ⬇️
+
 	Service
+
 	    ⬇️
+	
 	Repository
+	
 	    ⬇️
+	
 	Database
+	
 	    ⬇️
+	
 	Repository -> Service -> Controller
+	
 	    ⬇️
+	
 	HTTP Response
 
 The entity is the data model passed through the relavant layers; it is not itself  another service or a separate step that executes code.
@@ -397,5 +409,7 @@ One Important distinction from the previous lessons:
 - Hibernate is the ORM(Object-Relational Mapping) provider that perfoms the Object-to-relationsl mapping in this setup.
 - H2 is the database that stores our records while the application runs 
 	
+- **Spring Data JPA(Java Persistence Apis)**: A Spring framework tool that makes it easier to save, retrieve, update, and delete data in a database using Java.
 
- 
+- **In-memory H2 database**: A lightweight database that stores data temporarily in memory, mainly for testing and development. The data is usually lost when the application stops.
+
