@@ -375,6 +375,9 @@ A request normally travels down the layers, and the response travels back up:
 	    ⬇️
 	HTTP Response
 
+The entity is the data model passed through the relavant layers; it is not itself  another service or a separate step that executes code.
+
+
 	
 
  
