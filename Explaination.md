@@ -413,3 +413,9 @@ One Important distinction from the previous lessons:
 
 - **In-memory H2 database**: A lightweight database that stores data temporarily in memory, mainly for testing and development. The data is usually lost when the application stops.
 
+Why these dependencies
+
+- `spring-boot-starter-data-jpa` brings in Spring Data JPA and Hibernate persistence infrastructure.
+- `h2` provides the in-memory database driver
+
+
