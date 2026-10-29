@@ -377,6 +377,11 @@ A request normally travels down the layers, and the response travels back up:
 
 The entity is the data model passed through the relavant layers; it is not itself  another service or a separate step that executes code.
 
+**Why not put everythig in the controller?**
+
+Imagine a controller that receives requests, validates business rules, writes SQL, saves data, and constructs responses.
+
+It might work initially, but it becomes difficult to test and maintain. With layers, each class has a clearer responsibility, and you can change database access without rewriting your HTTP endpoints.
 
 	
 
