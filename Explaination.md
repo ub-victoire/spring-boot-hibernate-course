@@ -430,5 +430,76 @@ let's talk about this `application.propertise`
 
 **Important**: An in-memory H2 database normally loses its data when the application shuts down.
 
+```java
+// Defines the package where this Task class belongs.
+package com.victoire.spring_boot_hibernate_course.entity
 
+// Imports the @Entity annotation, which marks this class as a database entity.
+import jakarta.persitence.Entity;
 
+//Imports the @GeneratedValue annotation, which generates primary key values.
+import jakarta.persistence.GeneratedValue;
+
+// Imports GenerationType, which specifies how primary key values are generated.
+import jakarta.persistence.GeneratedType;
+
+// Imports the @Id annotation, which marks a field as the primary key.
+import jakarta.persistence.Id;
+
+// @Entity tells JPA that this class represents a database table.
+@Entity
+
+public class Task {
+	// @Id marks the id field as the primary key of the table.
+	@Id
+
+	// @GeneratedValue tells JPA to generate the ID automatically.
+	// @GenerationType.IDENTITY means the database generates the ID,
+	// typecally using an auto-increment column.
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	// Represents the title column in the database table.
+	// By default, JPA maps this field to a column name "title".
+	private String title;
+
+	// Represents the completed column in the database table.
+	// A boolean stores either true or false.
+	private boolean completed;
+
+	// Non-argument constructor.
+	// JPA requires a no-argument constructor to create entity objects.
+	public Task(){
+	
+	}
+
+	// Parameterized constructor.
+	// Allows you to create a Task with a title and completion status.
+
+	public Task(String title, boolean completed){
+		this.title = title; // Assigns the given title to the object's title field.
+		this.completed = completed; // Assigns the given status to the completed field.
+	}
+
+	// Getter: returns the task's title.
+	public String getTitle(){
+		return title;
+	}
+
+	// Setter: changes the task's title.
+	public String setTitle(String title){
+		this.title = title;
+	}	
+
+	// Getter: returns whether the task is completed.
+	// The isComplete() naming convention is used for boolean fields.
+	public boolean isCompleted(){
+		return completed;
+	}
+
+	//Setter: changes the task's completion status.
+	public void setCompleted(boolean completed){
+		this.completed = completed;
+	}
+} 
+```
