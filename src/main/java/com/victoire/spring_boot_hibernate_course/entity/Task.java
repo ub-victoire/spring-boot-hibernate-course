@@ -41,4 +41,8 @@ public class Task {
         this.completed = completed;
     }
 
+    public Long getId() {
+        return id;
+    }
+
 }
