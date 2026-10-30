@@ -517,4 +517,38 @@ public class Task {
 - `@Id` identifies the primary key.
 - `@GenetedValue(strategy = GenerationType.IDENTITY)` lets the database generate the ID automatically
 
+**The difference between `getter and setter`**
 
+=> A getter retrieves the value of a private class, property, while a setter modifies or assigns a new value to that property.
+
+Both methods works together to support `Encapsulation` in OOP by keeping internal variables hidden from direct external access.
+
+Main Differences
+
+|Feature|Getter(Accessor)|Setter(mutator)|
+|---|---|---|
+|Primary Purpose|Read and returns the value of a private variable|Modifies or updates the value of a private variable|
+|Common Alias|Getter|Setter|
+|Return Type|Non-void(matches the data type of the variable)|void(typically  returns nothing)|
+|Patameters|Usually takes no input pameters|Requires at least one parameters(the new value)|
+|Naming Conversion|Usually prefixed with `get`(e.g: `getAge()`)|Usually prefixed with `set` (e.g:`setAge(int newAge)` )|
+|Object State Effect|Keeps the object state unchanged|Changes thr internal state of the object.|
+
+```java
+public class User{
+	private String name; // Private variable hidden from direct external access
+
+	// ACCESSOR (Getter)
+	public String getName(){
+		return this.name
+	}
+
+	//MUTUTOR (Setter)
+	public void setName(String newName) {
+		if(newName != null && !newName.isEmpty()){ // Can include validation logic
+			this.name = newName
+		}
+	}
+
+}
+```
