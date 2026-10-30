@@ -503,3 +503,13 @@ public class Task {
 	}
 } 
 ```
+
+`Task` class represents a task in your application and, because of `@Entity`, JPA can map it to a database table.
+
+**The most important annotations**
+
+- `@Entity` tells JPA to map the class to a database table.
+- `@Id` identifies the primary key.
+- `@GenetedValue(strategy = GenerationType.IDENTITY)` lets the database generate the ID automatically
+
+
