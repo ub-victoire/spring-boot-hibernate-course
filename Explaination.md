@@ -501,6 +501,11 @@ public class Task {
 	public void setCompleted(boolean completed){
 		this.completed = completed;
 	}
+
+	// let's set the Id to we can the able to access the IS
+	public Long getId(){
+		return id;
+	}
 } 
 ```
 
