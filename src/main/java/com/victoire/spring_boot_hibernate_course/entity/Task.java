@@ -22,7 +22,7 @@ public class Task {
 
     public Task(String title, boolean completed) {
         this.title = title;
-        this.completed = completed;
+        this.completed =false;
     }
 
     public String getTitle() {
