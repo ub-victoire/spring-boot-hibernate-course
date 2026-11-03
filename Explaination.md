@@ -476,9 +476,9 @@ public class Task {
 	// Parameterized constructor.
 	// Allows you to create a Task with a title and completion status.
 
-	public Task(String title, boolean completed){
+	public Task(String title){ // We just need a title to create a task
 		this.title = title; // Assigns the given title to the object's title field.
-		this.completed = completed; // Assigns the given status to the completed field.
+		this.completed = false; // When creating a new task we do not need to set a status  once is create.
 	}
 
 	// Getter: returns the task's title.
@@ -552,3 +552,88 @@ public class User{
 
 }
 ```
+
+**Notice that we use `jakarta.persistance` imports. these are the persitence API imports for the Spring Boot version in the project.**
+
+### how the repository feature works
+
+```java 
+package com.victoire.spring_boot_hibernate_course.repository;
+
+import com.victoire.spring_boot_hibernate_course.entity.Task;
+import org.springframework.data.Jpa.repository.JpaRepository;
+
+public interface TaskRepository extends JpaRepository<Task, Long>{
+
+}
+```
+This is one of the most useful feature of Spring Data JPA.
+
+Normally, you might have to write database access code for operation such as saving task, retrieving all tasks, or finding one by ID. By extending `JpaRepository`, your repository inherits methods for these common operations.
+
+e.g:
+
+- `save(task)` = save or update an entity
+- `findall()` = retrieve all tasks
+- `findById(id)`= find a task by its ID
+- `delteById(id)` = delete a task by its ID.
+
+You don't need to implement those methods yourself. Spring Data JPA provides the implementation at runtime.
+
+**Why is it an interface**? You're describing the data-access operations your application needs. Spring Data JPA creates a suitable implementation for you.
+
+```java 
+package com.victoire.spring_boot_hibernate_cource.service;
+//Defines the package (folde) where this class belongs
+
+import org.springframework.stereotype.Service;
+// Imports @Service, which tells Spring this class is a service component.
+
+import com.victoire.spring_hibernate_course.repository.TaskReposotorry;
+// Imports TaskReposotory so we can communicate with the databse.
+
+import com.victoire.spring_hibernate_course.entity.Task;
+//import the Task entity (the object representing a task in the database
+
+import java.util.List;
+//Import List so we can return multiple Task objects.
+
+// @Service tells Spring to manage this class as a Spring bean
+@Service
+
+//Declares a public class named TaskService.
+
+public class TaskService {
+
+	// Declare a private, final variable of type TaskRepository.
+	// private: can only be accessed directly inside this class.
+	// final: cannot be reassigned after initialization.
+	// TaskRepository: the type of object stored in this variable.
+	// taskReposotory: the variable name.
+	private final TaskRepository taskRepositoryl
+
+	// Constructor: Spring uses this to provide a TaskRepository object.
+	public TaskService(TaskRepository taskRepository){
+		// Assigns the received repository object to the class variable.
+		this.taskRepository = taskRepository;
+	}
+	// Defines a method that receives a Task and returns a saved Task.
+	public Task CreateTask(Task task){
+		// Saves the task in the database and returns the saved Task
+		return taskRepository.save(task);
+	}
+
+	// Defines a method that returns a list of Task object
+	public List<Task> getAllTasks(){
+		// Retrieves all tasks from the database.
+		return taskRepository.findAllTasks();
+	}
+	// Dedfined a metod that receives an ID and returns matching tasks
+	public List
+
+
+}
+)
+```
+
+
